@@ -1,103 +1,220 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+
+      {/* =============================== */}
+      {/*         HEADER SECTION          */}
+      {/* =============================== */}
+      <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Name */}
+            <div className="flex items-center">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                MD.SHAJIBUL ISLAM
+              </span>
+            </div>
+
+            {/* Navigation Menu and Mobile Button */}
+            <div className="flex items-center space-x-4 md:space-x-8">
+              {/* Desktop Navigation Menu */}
+              <nav className="hidden md:flex items-center space-x-8">
+                <a href="#home" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Home
+                </a>
+                <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Skills
+                </a>
+                <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Projects
+                </a>
+                
+            
+                <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Contact
+                </a>
+              </nav>
+
+          
+
+              {/* Mobile Menu Button */}
+              <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={toggleMobileMenu}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <nav className="md:hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+            <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
+              <a href="#home" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Home</a>
+              <a href="#skills" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Skills</a>
+              <a href="#projects" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Projects</a>
+
+              <a href="#contact" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Contact</a>
+            </div>
+          </nav>
+        )}
+      </header>
+
+      {/* Add padding-top to account for fixed header */}
+      <div className="pt-16">
+
+        {/* =============================== */}
+        {/*          HERO SECTION           */}
+        {/* =============================== */}
+        <section id="home" className="relative container mx-auto px-4 py-20">
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-[-1]"
+            // Replace with your animated background video URL
+            src="/shajib.mp4"
+          >
+            Your browser does not support the video tag.
+          </video>
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in">
+              Professional Portfolio
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
+              Full Stack Developer | UI/UX Designer | Sales Executive
+            </p>
+          </div>
+        </section>
+
+        {/* =============================== */}
+        {/*         SKILLS SECTION          */}
+        {/* =============================== */}
+        <section id="skills" className="container mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Professional Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* NestJS Developer Card */}
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-4xl mb-4 animate-bounce">🚀</div>
+              <h3 className="text-xl font-bold mb-3">NestJS Developer</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Expert in building scalable backend applications using NestJS framework.
+                Specialized in RESTful APIs, microservices architecture, and database optimization.
+              </p>
+            </motion.div>
+
+            {/* Figma Designer Card */}
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-4xl mb-4 animate-pulse">🎨</div>
+              <h3 className="text-xl font-bold mb-3">Figma Designer</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Creating beautiful and intuitive user interfaces using Figma.
+                Experienced in wireframing, prototyping, and design systems.
+              </p>
+            </motion.div>
+
+            {/* Sales Executive Card */}
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="text-4xl mb-4 animate-spin-slow">💼</div>
+              <h3 className="text-xl font-bold mb-3">Academy Pro Sales Executive</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Leading sales initiatives and driving business growth.
+                Expert in client relationship management and strategic planning.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* =============================== */}
+        {/*        CONTACT SECTION          */}
+        {/* =============================== */}
+        <section id="contact" className="container mx-auto px-4 py-16">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+          </div>
+          <div className="max-w-md mx-auto">
+            {/* Contact Form */}
+            <form className="bg-gray-900 rounded-xl p-8 shadow-lg space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
+                <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email</label>
+                <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
+                <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-700 bg-gray-800 text-white shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+              </div>
+              <div className="text-center">
+                <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                  Send Message
+                </button>
+              </div>
+            </form>
+
+            {/* Social Links */}
+            <div className="flex justify-center gap-6 mt-8">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 hover:scale-110"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-300 hover:scale-110"
+              >
+                Email
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
