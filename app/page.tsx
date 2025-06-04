@@ -50,7 +50,14 @@ export default function Home() {
                 </a>
               </nav>
 
-          
+              {/* Profile Picture in Header */}
+              <Image
+                src="/shajib.jpg" // Replace with your profile picture path
+                alt="Your Name"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
 
               {/* Mobile Menu Button */}
               <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={toggleMobileMenu}>
@@ -83,26 +90,39 @@ export default function Home() {
         {/* =============================== */}
         {/*          HERO SECTION           */}
         {/* =============================== */}
-        <section id="home" className="relative container mx-auto px-4 py-20">
-          {/* Background Video */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover z-[-1]"
-            // Replace with your animated background video URL
-            src="/shajib.mp4"
-          >
-            Your browser does not support the video tag.
-          </video>
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in">
-              Professional Portfolio
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
+        <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/placeholder-hero-background.jpg" // Replace with your background image path
+              alt="Background"
+              layout="fill"
+              objectFit="cover"
+              className="filter grayscale brightness-50"
+            />
+            <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center text-white flex flex-col items-center">
+           
+            <h1 className="text-5xl md:text-7xl font-bold mb-4">I'm a Developer & Designer</h1>
+            <p className="text-xl md:text-2xl mb-8">
               Full Stack Developer | UI/UX Designer | Sales Executive
             </p>
+
+            {/* Call-to-Action Buttons */}
+            <div className="flex justify-center gap-4">
+              <a href="#projects" className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors">MY WORK</a>
+              <a href="#contact" className="border border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">HIRE ME</a>
+            </div>
+            
+
+            {/* Profile Picture Placeholder (Right side) */}
+            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 mr-8">
+               {/* You can add your Image component here */}
+               {/* <Image src="/shajib.jpg" alt="Your Name" width={300} height={400} className="rounded-lg shadow-xl" /> */}
+            </div>
           </div>
         </section>
 
@@ -174,8 +194,46 @@ export default function Home() {
               <p className="text-gray-600 dark:text-gray-300">Varendra University</p>
               <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">2023 - Present</p>
             </div>
+            {/* Education Entry 2 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold mb-2">HSC in Science</h3>
+              <p className="text-gray-600 dark:text-gray-300">Natore Govt. College</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">2020 - 2022</p>
+            </div>
+            {/* Education Entry 3 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold mb-2">SSC in Science</h3>
+              <p className="text-gray-600 dark:text-gray-300">Natore Govt. High School</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">2018 - 2020</p>
+            </div>
 
             {/* Add more education entries as needed */}
+          </div>
+        </section>
+
+        {/* =============================== */}
+        {/*        PROJECTS SECTION        */}
+        {/* =============================== */}
+        <section id="projects" className="container mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-12">My Projects</h2>
+          {/* Add your project cards or descriptions here */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Example Project Card */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              {/* Project Image Placeholder */}
+              <div className="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-md mb-4"></div>
+              <h3 className="text-xl font-bold mb-2">Academy Pro</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                School management software for managing students, teachers, and other school related activities.
+              </p>
+              <div className="flex space-x-4">
+                
+                <a href="https://www.academypro.live/" className="text-blue-600"> www.academypro.live</a>
+              </div>
+            </div>
+
+            {/* Add more project cards here by copying the structure above */}
+
           </div>
         </section>
 
