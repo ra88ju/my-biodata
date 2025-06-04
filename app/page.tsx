@@ -50,14 +50,7 @@ export default function Home() {
                 </a>
               </nav>
 
-              {/* Profile Picture in Header */}
-              <Image
-                src="/shajib.jpg" // Replace with your profile picture path
-                alt="Your Name"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
+        
 
               {/* Mobile Menu Button */}
               <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={toggleMobileMenu}>
