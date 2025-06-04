@@ -37,6 +37,9 @@ export default function Home() {
                 <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Skills
                 </a>
+                <a href="#education" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  Education
+                </a>
                 <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Projects
                 </a>
@@ -65,6 +68,7 @@ export default function Home() {
             <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
               <a href="#home" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Home</a>
               <a href="#skills" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Skills</a>
+              <a href="#education" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Education</a>
               <a href="#projects" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Projects</a>
 
               <a href="#contact" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Contact</a>
@@ -159,6 +163,23 @@ export default function Home() {
         </section>
 
         {/* =============================== */}
+        {/*        EDUCATION SECTION        */}
+        {/* =============================== */}
+        <section id="education" className="container mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Education Entry 1 */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <h3 className="text-xl font-bold mb-2">BSc in Computer Science and Engineering</h3>
+              <p className="text-gray-600 dark:text-gray-300">Varendra University</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">2023 - Present</p>
+            </div>
+
+            {/* Add more education entries as needed */}
+          </div>
+        </section>
+
+        {/* =============================== */}
         {/*        CONTACT SECTION          */}
         {/* =============================== */}
         <section id="contact" className="container mx-auto px-4 py-16">
@@ -190,7 +211,7 @@ export default function Home() {
             {/* Social Links */}
             <div className="flex justify-center gap-6 mt-8">
               <a
-                href="https://github.com"
+                href="https://github.com/ra88ju"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110"
