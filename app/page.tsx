@@ -12,13 +12,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-white dark:bg-black">
 
       {/* =============================== */}
       {/*         HEADER SECTION          */}
       {/* =============================== */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
-        <div className="container mx-auto px-4">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 mx-4 mt-4 rounded-full shadow-lg">
+        <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
             <div className="flex items-center">
@@ -43,17 +43,13 @@ export default function Home() {
                 <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Projects
                 </a>
-                
-            
                 <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   Contact
                 </a>
               </nav>
 
-        
-
               {/* Mobile Menu Button */}
-              <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={toggleMobileMenu}>
+              <button className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" onClick={toggleMobileMenu}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -64,13 +60,12 @@ export default function Home() {
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-            <div className="container mx-auto px-4 py-2 flex flex-col space-y-2">
+          <nav className="md:hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 rounded-b-3xl shadow-lg">
+            <div className="container mx-auto px-6 py-4 flex flex-col space-y-3">
               <a href="#home" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Home</a>
               <a href="#skills" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Skills</a>
               <a href="#education" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Education</a>
               <a href="#projects" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Projects</a>
-
               <a href="#contact" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Contact</a>
             </div>
           </nav>
@@ -83,7 +78,7 @@ export default function Home() {
         {/* =============================== */}
         {/*          HERO SECTION           */}
         {/* =============================== */}
-        <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
+        <section id="home" className=" items-center justify-center min-h-screen ">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -97,7 +92,7 @@ export default function Home() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 text-center text-white flex flex-col items-center">
+          <div className="relative z-10 mt-10 text-center text-white flex flex-col items-center">
            
             <h1 className="text-5xl md:text-7xl font-bold mb-4">I'm a Developer & Designer</h1>
             <p className="text-xl md:text-2xl mb-8">
@@ -122,12 +117,12 @@ export default function Home() {
         {/* =============================== */}
         {/*         SKILLS SECTION          */}
         {/* =============================== */}
-        <section id="skills" className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Professional Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section id="skills" className="container  px-10 py-0 bg-black rounded-x7 dark:bg-black">
+          <h2 className="text-3xl font-bold text-center text-white mb-10 ">Professional Skills</h2>
+          <div className="grid grid-cols-1 bg-white dark:bg-black md:grid-cols-3 gap-8">
             {/* NestJS Developer Card */}
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white dark:bg-white-800 text-black rounded-xl  p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -135,7 +130,7 @@ export default function Home() {
             >
               <div className="text-4xl mb-4 animate-bounce">🚀</div>
               <h3 className="text-xl font-bold mb-3">NestJS Developer</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-black-300">
                 Expert in building scalable backend applications using NestJS framework.
                 Specialized in RESTful APIs, microservices architecture, and database optimization.
               </p>
@@ -143,7 +138,7 @@ export default function Home() {
 
             {/* Figma Designer Card */}
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white dark:bg-white-800 text-black rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -151,7 +146,7 @@ export default function Home() {
             >
               <div className="text-4xl mb-4 animate-pulse">🎨</div>
               <h3 className="text-xl font-bold mb-3">Figma Designer</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-black-300">
                 Creating beautiful and intuitive user interfaces using Figma.
                 Experienced in wireframing, prototyping, and design systems.
               </p>
@@ -159,7 +154,7 @@ export default function Home() {
 
             {/* Sales Executive Card */}
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white dark:bg-white-800 text-black rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -167,7 +162,7 @@ export default function Home() {
             >
               <div className="text-4xl mb-4 animate-spin-slow">💼</div>
               <h3 className="text-xl font-bold mb-3">Academy Pro Sales Executive</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-black-300">
                 Leading sales initiatives and driving business growth.
                 Expert in client relationship management and strategic planning.
               </p>
@@ -278,7 +273,23 @@ export default function Home() {
                 LinkedIn
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="https://www.facebook.com/dmshajib.islamraju"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 hover:scale-110"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/dmshajib.islamraju/?__pwa=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all duration-300 hover:scale-110"
+              >
+                Instagram
+              </a>
+              <a
+                href="shajibislam3003@gmail.com"
                 className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all duration-300 hover:scale-110"
               >
                 Email
