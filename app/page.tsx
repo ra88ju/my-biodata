@@ -220,26 +220,133 @@ export default function Home() {
         {/* =============================== */}
         {/*        PROJECTS SECTION        */}
         {/* =============================== */}
-        <section id="projects" className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold text-center mb-12">My Projects</h2>
-          {/* Add your project cards or descriptions here */}
+        <section id="projects" className="container mx-auto px-4 py-20 bg-gradient-to-b from-gray-900 to-black">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Explore my latest work and innovative solutions that showcase my expertise in full-stack development
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Example Project Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-              {/* Project Image Placeholder */}
-              <div className="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-md mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Academy Pro</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                School management software for managing students, teachers, and other school related activities.
-              </p>
-              <div className="flex space-x-4">
-                
-                <a href="https://www.academypro.live/" className="text-blue-600"> www.academypro.live</a>
+            {/* Academy Pro Project Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
               </div>
-            </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white">Academy Pro</h3>
+                  <span className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm">Full Stack</span>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  A comprehensive school management system built with Next.js and NestJS, featuring real-time updates, automated attendance, and advanced analytics.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Next.js</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">NestJS</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">PostgreSQL</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href="https://www.academypro.live/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
+                  >
+                    <span>Live Demo</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
 
-            {/* Add more project cards here by copying the structure above */}
+            {/* E-Commerce Project Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white">E-Commerce Platform</h3>
+                  <span className="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm">Frontend</span>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  A modern e-commerce platform with real-time inventory management, secure payment processing, and personalized shopping experience.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">React</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Redux</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Stripe</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href="#" 
+                    className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-2"
+                  >
+                    <span>View Project</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
 
+            {/* Portfolio Project Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-green-600 to-teal-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-white">Personal Portfolio</h3>
+                  <span className="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-sm">Design</span>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  A modern, responsive portfolio website showcasing my work and skills with smooth animations and interactive elements.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Next.js</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Tailwind</span>
+                  <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-sm">Framer Motion</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href="#" 
+                    className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-2"
+                  >
+                    <span>View Project</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
