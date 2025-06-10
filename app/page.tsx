@@ -150,7 +150,7 @@ export default function Home() {
         {/* =============================== */}
         {/*         SKILLS SECTION          */}
         {/* =============================== */}
-        <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-black relative overflow-hidden">
+        <section id="skills" className="pt-10 pb-20 bg-gradient-to-b from-gray-900 via-gray-800 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50"></div>
           <div className="container mx-auto px-4 relative">
             <motion.div
@@ -455,7 +455,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/Project Image Placeholder.jpg"
+                    src="/projects/academy-pro.jpg"
                     alt="E-commerce Platform"
                     layout="fill"
                     objectFit="cover"
@@ -500,7 +500,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/Project Image Placeholder.jpg"
+                    src="/projects/ecommerce.jpg"
                     alt="Social Media Dashboard"
                     layout="fill"
                     objectFit="cover"
@@ -545,7 +545,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 to-teal-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/Project Image Placeholder.jpg"
+                    src="/projects/portfolio.jpg"
                     alt="AI-Powered Chat App"
                     layout="fill"
                     objectFit="cover"
