@@ -30,45 +30,78 @@ export default function Home() {
             {/* Navigation Menu and Mobile Button */}
             <div className="flex items-center space-x-4 md:space-x-8">
               {/* Desktop Navigation Menu */}
-              <nav className="hidden md:flex items-center space-x-8">
-                <a href="#home" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Home
-                </a>
-                <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Skills
-                </a>
-                <a href="#education" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Education
-                </a>
-                <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Projects
-                </a>
-                <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Contact
-                </a>
-              </nav>
+              <motion.nav 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="hidden md:flex items-center space-x-8"
+              >
+                {[
+                  { href: "#home", label: "Home" },
+                  { href: "#skills", label: "Skills" },
+                  { href: "#education", label: "Education" },
+                  { href: "#projects", label: "Projects" },
+                  { href: "#contact", label: "Contact" }
+                ].map((item, index) => (
+                  <motion.a 
+                    key={item.href}
+                    href={item.href} 
+                    className="relative text-gray-300 hover:text-white transition-colors group"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+                  </motion.a>
+                ))}
+              </motion.nav>
 
               {/* Mobile Menu Button */}
-              <button className="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" onClick={toggleMobileMenu}>
+              <motion.button 
+                whileTap={{ scale: 0.95 }}
+                className="md:hidden p-2 rounded-full bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white transition-colors border border-gray-700/30"
+                onClick={toggleMobileMenu}
+              >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
                 </svg>
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 rounded-b-3xl shadow-lg">
-            <div className="container mx-auto px-6 py-4 flex flex-col space-y-3">
-              <a href="#home" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Home</a>
-              <a href="#skills" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Skills</a>
-              <a href="#education" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Education</a>
-              <a href="#projects" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Projects</a>
-              <a href="#contact" className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" onClick={toggleMobileMenu}>Contact</a>
+          <motion.nav 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-gradient-to-b from-gray-900/90 to-black/90 backdrop-blur-xl border-t border-gray-800/30 rounded-b-3xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
+            <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
+              {[
+                { href: "#home", label: "Home" },
+                { href: "#skills", label: "Skills" },
+                { href: "#education", label: "Education" },
+                { href: "#projects", label: "Projects" },
+                { href: "#contact", label: "Contact" }
+              ].map((item, index) => (
+                <motion.a 
+                  key={item.href}
+                  href={item.href} 
+                  className="block text-gray-300 hover:text-white hover:pl-2 transition-all duration-200 border-l-2 border-transparent hover:border-blue-500 pl-1"
+                  onClick={toggleMobileMenu}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
             </div>
-          </nav>
+          </motion.nav>
         )}
       </header>
 
@@ -117,8 +150,9 @@ export default function Home() {
         {/* =============================== */}
         {/*         SKILLS SECTION          */}
         {/* =============================== */}
-        <section id="skills" className="py-20 bg-gradient-to-b from-black to-gray-900">
-          <div className="container mx-auto px-4">
+        <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50"></div>
+          <div className="container mx-auto px-4 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
