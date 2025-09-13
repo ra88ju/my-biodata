@@ -111,7 +111,7 @@ export default function Home() {
         {/* =============================== */}
         {/*          HERO SECTION           */}
         {/* =============================== */}
-        <section id="home" className=" items-center justify-center min-h-screen ">
+        <section id="home" className="relative flex items-center justify-center min-h-screen overflow-hidden">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -124,25 +124,134 @@ export default function Home() {
             <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 mt-10 text-center text-white flex flex-col items-center">
-           
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">I'm a Developer & Designer</h1>
-            <p className="text-xl md:text-2xl mb-8">
-              Full Stack Developer | UI/UX Designer | Sales Executive
-            </p>
+          {/* Content Container */}
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+              
+              {/* Main Content */}
+              <div className="text-center lg:text-left flex-1 max-w-4xl">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="space-y-6"
+                >
+                  {/* Greeting */}
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium"
+                  >
+                    Hello, I'm
+                  </motion.p>
 
-            {/* Call-to-Action Buttons */}
-            <div className="flex justify-center gap-4">
-              <a href="#projects" className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors">MY WORK</a>
-              <a href="#contact" className="border border-white text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">HIRE ME</a>
-            </div>
-            
+                  {/* Main Heading */}
+                  <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
+                  >
+                    <span className="block text-white">MD.SHAJIB ISLAM</span>
+                    <span className="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mt-2">
+                      Full Stack Developer
+                    </span>
+                  </motion.h1>
 
-            {/* Profile Picture Placeholder (Right side) */}
-            <div className="absolute top-1/2 right-0 transform -translate-y-1/2 mr-8">
-               {/* You can add your Image component here */}
-               {/* <Image src="/shajib.jpg" alt="Your Name" width={300} height={400} className="rounded-lg shadow-xl" /> */}
+                  {/* Description */}
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                  >
+                    I create exceptional digital experiences through innovative development and thoughtful design.
+                    <br className="hidden sm:block" />
+                    <span className="text-white font-semibold">React • Node.js • UI/UX Design</span>
+                  </motion.p>
+
+                  {/* Call-to-Action Buttons */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4"
+                  >
+                    <motion.a 
+                      href="#projects" 
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 overflow-hidden"
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        VIEW MY WORK
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </motion.a>
+                    
+                    <motion.a 
+                      href="#contact" 
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group relative px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white rounded-full text-base sm:text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300"
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        GET IN TOUCH
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                      </span>
+                    </motion.a>
+                  </motion.div>
+
+                  {/* Scroll Indicator */}
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    className="hidden lg:block absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                  >
+                    <motion.div
+                      animate={{ y: [0, 10, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="flex flex-col items-center text-gray-400"
+                    >
+                      <span className="text-sm mb-2">Scroll Down</span>
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </div>
+
+              {/* Profile Picture Section (Hidden on mobile, visible on larger screens) */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="hidden lg:flex lg:flex-1 lg:justify-center lg:items-center"
+              >
+                <div className="relative">
+                  {/* Profile Picture Placeholder */}
+                  <div className="relative w-80 h-96 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl border border-white/20 backdrop-blur-sm flex items-center justify-center">
+                    <div className="text-center text-white/60">
+                      <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <p className="text-sm">Your Photo Here</p>
+                    </div>
+                  </div>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full animate-pulse"></div>
+                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -428,6 +537,8 @@ export default function Home() {
         {/* =============================== */}
         <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+          
           <div className="container mx-auto px-4 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -435,142 +546,59 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Featured Projects
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                 Showcasing my best work in development and design
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Project 1 */}
+            <div className="flex justify-center">
+              {/* Academy Pro Project Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -5 }}
-                transition={{ duration: 0.5 }}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800/50 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/10 transition-all duration-500"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src="/projects/academy-pro.jpg"
-                    alt="E-commerce Platform"
-                    layout="fill"
-                    objectFit="cover"
-                    className="group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">E-commerce Platform</h3>
-                    <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">A full-stack e-commerce solution with advanced features and seamless user experience.</p>
-                  </div>
-                </div>
-                <div className="p-6 pt-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">Next.js</span>
-                    <span className="px-3 py-1 text-sm bg-green-500/10 text-green-400 rounded-full border border-green-500/20">Node.js</span>
-                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">MongoDB</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 group/link">
-                      <span>View Project</span>
-                      <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 transition-transform">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Project 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 shadow-lg hover:shadow-purple-500/10 transition-all duration-500"
+                transition={{ duration: 0.5, delay: 0 }}
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 shadow-lg hover:shadow-purple-500/10 transition-all duration-500 w-full max-w-md"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src="/projects/ecommerce.jpg"
-                    alt="Social Media Dashboard"
-                    layout="fill"
-                    objectFit="cover"
-                    className="group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-purple-900/30 to-pink-900/30 flex items-center justify-center">
+                  {/* Academy Pro Logo/Icon */}
+                  <div className="text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Academy Pro</h3>
+                    <p className="text-purple-300 text-sm">School Management System</p>
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">Social Media Dashboard</h3>
-                    <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Real-time analytics dashboard for social media management and monitoring.</p>
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">Academy Pro</h3>
+                    <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">A comprehensive school management system with student enrollment, attendance tracking, grade management, and parent-teacher communication.</p>
                   </div>
                 </div>
-                <div className="p-6 pt-0">
+                <div className="p-6 pt-3">
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">React</span>
-                    <span className="px-3 py-1 text-sm bg-yellow-500/10 text-yellow-400 rounded-full border border-yellow-500/20">Firebase</span>
-                    <span className="px-3 py-1 text-sm bg-pink-500/10 text-pink-400 rounded-full border border-pink-500/20">TailwindCSS</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">Attendance</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">Student</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">Finance</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">MongoDB</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">JWT Auth</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">Tailwind CSS</span>
+                    <span className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full border border-purple-500/20">REST API</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-2 group/link">
+                    <a href="https://www.academypro.live/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-2 group/link">
                       <span>View Project</span>
                       <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 transition-transform">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Project 3 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-black/50 backdrop-blur-xl border border-gray-800/50 hover:border-green-500/50 shadow-lg hover:shadow-green-500/10 transition-all duration-500"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 to-teal-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src="/projects/portfolio.jpg"
-                    alt="AI-Powered Chat App"
-                    layout="fill"
-                    objectFit="cover"
-                    className="group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">AI-Powered Chat App</h3>
-                    <p className="text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Intelligent chatbot application with natural language processing capabilities.</p>
-                  </div>
-                </div>
-                <div className="p-6 pt-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-3 py-1 text-sm bg-green-500/10 text-green-400 rounded-full border border-green-500/20">Python</span>
-                    <span className="px-3 py-1 text-sm bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">TensorFlow</span>
-                    <span className="px-3 py-1 text-sm bg-red-500/10 text-red-400 rounded-full border border-red-500/20">FastAPI</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <a href="#" className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-2 group/link">
-                      <span>View Project</span>
-                      <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 transition-transform">
+                    <a href="https://www.academypro.live/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 transition-transform">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
@@ -580,26 +608,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* View All Projects Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mt-16"
-            >
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full text-lg font-semibold relative group overflow-hidden shadow-xl shadow-blue-500/20 hover:shadow-purple-500/20 transition-shadow duration-500"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></span>
-                <span className="relative">View All Projects</span>
-                <svg className="w-5 h-5 relative transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </motion.a>
-            </motion.div>
           </div>
         </section>
 
@@ -764,7 +772,7 @@ export default function Home() {
               >
                 <span className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 <svg className="w-5 h-5 relative" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.237 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
                 <span className="relative font-medium">GitHub</span>
               </motion.a>
@@ -806,7 +814,7 @@ export default function Home() {
               >
                 <span className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 <svg className="w-5 h-5 relative" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.059 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
                 <span className="relative font-medium">Instagram</span>
               </motion.a>
